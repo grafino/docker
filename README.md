@@ -1,50 +1,34 @@
-#### To build the container
-- docker build -t [tag] .
+### Docker
+Rui Grafino v.01
+
+###This is a summary and reference for docker and some of it's commands and information.
 
 
-#### To run the container
-- docker run -it [image/id]
+###What is Docker / Container?
+
+- It's an isolated Operating System environment much like a Virtual Machine in wich we can isolate resources and apps.
+- Usually serves an ephemeral purpose and it's discarded after usage.
+- Low usage of resources on your Operating System.
+- Share kernel with the host, dont have the need for an hypervisor.
+
+###Why use Docker?
+
+- Isolate a development environment and it's dependencies.
+- Setup a lab platform with low resources.
+- Ephemeral testing.
+
+###What is a Dockerfile?
+
+- A set of instructions to build a docker image.
+- A custom environment that fits our needs.
+
+#### Best Practices
+- Containers should be ephemeral
+- Avoid installing unnecessary packages
+- Each container should have only one purpose
+- Minimise the number of layers
+- Sort multi-line arguments
 
 
-#### To run the container specifying a name
-- docker run --name [name] -it [image/id]
-
-##### To list local images
-- docker image ls
-
-```
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-example-2           latest              5f5638b77050        16 minutes ago      246 MB
-example-1           latest              b381e0a9c3c3        30 minutes ago      156 MB
-ubuntu              latest              f7b3f317ec73        2 weeks ago         117 MB
-```
-
-##### To list local images
-- docker image ls
-
-##### To list local images with all layers
-- docker image ls -a
-
-##### To list only the ids of local images
-- docker image ls -q
-
-##### To list running containers
-- docker container ps
-
-##### To list all containers
-- docker container ps -a
-  - docker ps -a -f status=running
-  - docker ps -a -f status=exited
-
-#### Start/Stop/ a running container
-- docker container start [name/id]
-- docker container stop [name/id]
-
-#### Connect to a running container
-- docker container attach [name/id]
-
-
-#### Remove all containers
-- docker container rm $(docker container ls -aq)
-- docker container stop $(docker container ls -aq)
-- docker container  $(docker container ls -aq)
+#### Hide legacy syntax
+export DOCKER_HIDE_LEGACY_COMMANDS=true
