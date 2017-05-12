@@ -1,13 +1,11 @@
-FROM ubuntu
+FROM ubuntu:latest
 
 # Labels are used to add metadata to the container
-
-LABEL Maintainer "Rui Grafino"
-LABEL Example "6"
+LABEL Maintainer="Rui Grafino" Example="6"
 
 # Default application that is used every time a container is created/run.
-ENTRYPOINT ["ls -l"]
+ENTRYPOINT ["/bin/date"]
 
 
 # In this case CMD will serve as arguments for the entrypoint
-CMD  "*"
+CMD  ["+%h"]
